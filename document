@@ -1,0 +1,70 @@
+http://127.0.0.1:8000/api-token-auth/ ---> login istediği yolanıyor. bir token alınıyor
+{
+	"username": "admin",
+	"password": "unicrow61"			--> gönderilen
+}
+
+{
+    "token": "65b862beb857b6fce59eaedef00d97e66af6ea02"		--> gelen
+}
+
+
+http://127.0.0.1:8000/entry -> POST VE GET kullanılır 
+        {
+            "category": "http://127.0.0.1:8000/category/1/",	--> POST
+            "date": "2019-07-08",
+            "amount": 232,
+            "income_expense": true
+        },
+        {
+            "id": 4,
+            "category": "http://127.0.0.1:8000/category/1/"	--> GET
+            "date": "2019-07-08",
+            "amount": 232,
+            "income_expense": true
+        },
+
+http://127.0.0.1:8000/entry/(id) --> POST GET PUT DELETE
+	{
+	    "id": 4,
+	    "category": "http://127.0.0.1:8000/category/1/",	-->GET POST PUT
+	    "date": "2019-07-08",
+	    "amount": 232,
+	    "income_expense": true
+	}
+	DELETE İÇİN sadece link göndermen yeterli
+
+http://127.0.0.1:8000/entry/0/statistics
+	{
+	    "income-sum": 1120,
+	    "expense-sum": 666,		-->GET gelir gider ve toplamı
+	    "statistics": 1786,
+	    "objects": []
+	}
+
+http://127.0.0.1:8000/tag/
+
+        {
+            "url": "http://127.0.0.1:8000/tag/2/",	-->url kısmı kendi urli
+            "id": 2,
+            "name": "Çamaşır Suyu"
+        },
+http://127.0.0.1:8000/entry-tag/
+        {
+            "url": "http://127.0.0.1:8000/entry-tag/5/",
+            "entry": "http://127.0.0.1:8000/entry/4/",
+            "tag": "http://127.0.0.1:8000/tag/2/"
+        },
+
+http://127.0.0.1:8000/category/
+        {
+            "id": 1,
+            "name": "Çamaşır Suyu"
+        },
+
+http://127.0.0.1:8000/repeater
+        {
+            "repeat": false,	->false gider ->true gider
+            "entry": "http://127.0.0.1:8000/entry/4/",
+            "date": "2019-07-08"
+        }
